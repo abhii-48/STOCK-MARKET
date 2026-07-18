@@ -19,7 +19,15 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: [
+    'https://stock-market-jade.vercel.app',   // your deployed Vercel URL
+    'http://localhost:5173'               // for local dev/testing
+  ],
+  credentials: true
+}));
+
 
 // Mount routers
 app.use('/api/auth', require('./routes/authRoutes'));
