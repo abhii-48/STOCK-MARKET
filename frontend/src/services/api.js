@@ -3,8 +3,13 @@ import axios from 'axios';
 // In production the Express server serves both the app and its API. Keeping
 // requests relative prevents a page refresh from trying to reach a stale or
 // unavailable localhost port.
+// const api = axios.create({
+//     baseURL: import.meta.env.PROD ? '/api' : (import.meta.env.VITE_API_URL || '/api'),
+//     timeout: 10000,
+// });
+
 const api = axios.create({
-    baseURL: import.meta.env.PROD ? '/api' : (import.meta.env.VITE_API_URL || '/api'),
+    baseURL: `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`,
     timeout: 10000,
 });
 
