@@ -6,10 +6,11 @@
   "scripts": {
     "start": "cd backend && npm start",
     "backend-install": "cd backend && npm install",
-    "frontend-install": "cd frontend && npm install",
+    "frontend-install": "cd frontend && npm install --include=dev",
     "frontend-build": "cd frontend && npm run build",
     "install-all": "npm run backend-install && npm run frontend-install",
     "build:all": "npm run install-all && npm run frontend-build",
+    "build": "npm run build:all",
     "dev-backend": "cd backend && npm run dev",
     "dev-frontend": "cd frontend && npm run dev"
   },

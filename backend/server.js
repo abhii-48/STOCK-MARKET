@@ -7,8 +7,8 @@ const fs = require('fs');
 
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
-// Load env vars
-dotenv.config();
+// Load env vars from explicit path relative to this file
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 // Connect to database
 connectDB();
