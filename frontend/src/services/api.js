@@ -8,8 +8,13 @@ import axios from 'axios';
 //     timeout: 10000,
 // });
 
+let baseUrl = import.meta.env.VITE_API_URL || '';
+if (baseUrl.endsWith('/')) {
+    baseUrl = baseUrl.slice(0, -1);
+}
+
 const api = axios.create({
-    baseURL: `${import.meta.env.VITE_API_URL || ''}/api`,
+    baseURL: `${baseUrl}/api`,
     timeout: 10000,
 });
 
