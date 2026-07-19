@@ -19,12 +19,15 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS
-// app.use(cors());
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'https://stock-market-jade.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:3000'
+].filter(Boolean);
+
 app.use(cors({
-  origin: [
-    'https://stock-market-jade.vercel.app',   // your deployed Vercel URL
-    'http://localhost:5173'               // for local dev/testing
-  ],
+  origin: allowedOrigins,
   credentials: true
 }));
 
